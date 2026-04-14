@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Максимальный многопоточный пинг -->
+    <integer name="ping_max_threads">200</integer>
+    <integer name="ping_timeout_ms">1000</integer>
+    <bool name="ping_parallel">true</bool>
+    
+    <!-- Умная сортировка серверов -->
+    <bool name="smart_sorting">true</bool>
+    <string name="sort_algorithm">weighted_rating</string>
+    <string name="weight_latency">0.5</string>
+    <string name="weight_stability">0.3</string>
+    <string name="weight_uptime">0.2</string>
+    
+    <!-- Автовыбор лучшего сервера -->
+    <bool name="auto_select_best">true</bool>
+    <integer name="auto_select_interval">300</integer>
+    <bool name="fallback_on_disconnect">true</bool>
+</resources>
