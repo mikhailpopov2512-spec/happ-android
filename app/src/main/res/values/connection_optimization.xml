@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TCP оптимизации -->
+    <bool name="tcp_fast_open">true</bool>
+    <integer name="socket_buffer_size">524288</integer>
+    <integer name="send_buffer_size">262144</integer>
+    <integer name="receive_buffer_size">262144</integer>
+    
+    <!-- MUX мультиплексирование -->
+    <bool name="enable_mux">true</bool>
+    <integer name="mux_concurrency">32</integer>
+    <integer name="mux_max_streams">200</integer>
+    
+    <!-- Быстрое переподключение -->
+    <integer name="reconnect_delay_ms">250</integer>
+    <integer name="max_reconnect_attempts">20</integer>
+    <bool name="exponential_backoff">true</bool>
+    
+    <!-- Keep-alive -->
+    <integer name="keepalive_interval">15</integer>
+    <bool name="adaptive_keepalive">true</bool>
+</resources>
