@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Квантовая фрагментация для обхода DPI -->
+    <string name="fragmentation_modes">tlshello,1-5,3-10,random:2-8,quantum</string>
+    <bool name="random_fragmentation">true</bool>
+    
+    <!-- Обфускация TLS-отпечатка -->
+    <bool name="enable_tls_obfuscation">true</bool>
+    <string name="tls_fingerprints">chrome,firefox,safari,edge,random,opera</string>
+    <bool name="rotate_fingerprint">true</bool>
+    <integer name="fingerprint_rotate_minutes">15</integer>
+    
+    <!-- ECH (Encrypted Client Hello) -->
+    <bool name="enable_ech">true</bool>
+    <bool name="force_ech">true</bool>
+    
+    <!-- Noise маскировка трафика -->
+    <bool name="enable_noise">true</bool>
+    <string name="noise_pattern">random:50-500,hex,base64,str:32,double</string>
+    
+    <!-- Domain Fronting -->
+    <bool name="domain_fronting">true</bool>
+    <string-array name="front_domains">
+        <item>cdn.cloudflare.com</item>
+        <item>googleapis.com</item>
+        <item>amazonaws.com</item>
+        <item>fastly.net</item>
+        <item>akamaiedge.net</item>
+    </string-array>
+</resources>
