@@ -1,0 +1,58 @@
+name: Build Happ Pro Max APK
+
+on:
+  push:
+    branches: [ main, master ]
+    tags:
+      - 'v*'
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+      with:
+        packages: |
+          platforms;android-34
+          build-tools;34.0.0
+          platform-tools
+
+    - name: Grant execute permission
+      run: chmod +x gradlew
+
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug --stacktrace
+
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: Happ-ProMax-Ultimate
+        path: app/build/outputs/apk/debug/*.apk
+        retention-days: 30
+
+    - name: Build Release APK
+      run: ./gradlew assembleRelease --stacktrace || true
+
+    - name: Upload Release APK (if exists)
+      if: success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: Happ-ProMax-Release
+        path: app/build/outputs/apk/release/*.apk
+        retention-days: 30
